@@ -7,17 +7,17 @@ from django.conf import settings
 
 router = routers.DefaultRouter()
 router.register(r'reports', api_views.ReportViewSet)
-router.register(r'report', api_views.ReportNestedViewSet)
+router.register(r'report-detail', api_views.ReportNestedViewSet)
 router.register(r'formats', api_views.FormatViewSet)
 router.register(r'filterfields', api_views.FilterFieldViewSet)
 router.register(r'contenttypes', api_views.ContentTypeViewSet)
 
 urlpatterns = [
-    re_path(r'^report/(?P<pk>\d+)/download_file/$', views.DownloadFileView.as_view(), name="report_download_file"),
-    re_path(r'^report/(?P<pk>\d+)/download_file/(?P<filetype>.+)/$', views.DownloadFileView.as_view(), name="report_download_file"),
-    re_path(r'^report/(?P<pk>\d+)/check_status/(?P<task_id>.+)/$', views.check_status, name="report_check_status"),
-    re_path(r'^report/(?P<pk>\d+)/add_star/$', views.ajax_add_star, name="ajax_add_star"),
-    re_path(r'^report/(?P<pk>\d+)/create_copy/$', views.create_copy, name="report_builder_create_copy"),
+    re_path(r'^report-detail/(?P<pk>\d+)/download_file/$', views.DownloadFileView.as_view(), name="report_download_file"),
+    re_path(r'^report-detail/(?P<pk>\d+)/download_file/(?P<filetype>.+)/$', views.DownloadFileView.as_view(), name="report_download_file"),
+    re_path(r'^report-detail/(?P<pk>\d+)/check_status/(?P<task_id>.+)/$', views.check_status, name="report_check_status"),
+    re_path(r'^report-detail/(?P<pk>\d+)/add_star/$', views.ajax_add_star, name="ajax_add_star"),
+    re_path(r'^report-detail/(?P<pk>\d+)/create_copy/$', views.create_copy, name="report_builder_create_copy"),
     re_path(r'^export_to_report/$', views.ExportToReport.as_view(), name="export_to_report"),
     re_path(r'^api/', include(router.urls)),
     re_path(r'^api/config/', api_views.ConfigView.as_view()),
