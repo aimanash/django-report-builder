@@ -23,7 +23,6 @@ setup(
     ],
     python_requires='>=3.3',
     install_requires=[
-        'django-report-builder==6.4.2'
         'openpyxl >= 2.2.1',
         'python-dateutil',
         'djangorestframework>=3.8.0',
