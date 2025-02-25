@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
-    re_path(r'^report_builder/', include('report_builder_scheduled.urls')),
+    re_path(r'^report_builder_scheduled/', include('report_builder_scheduled.urls')),
     re_path(r'^report_builder/', include('report_builder.urls')),
 ]
 if settings.DEBUG:
